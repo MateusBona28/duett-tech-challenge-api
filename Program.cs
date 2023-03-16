@@ -19,6 +19,8 @@ builder.Services.AddEntityFrameworkNpgsql()
 
 builder.Services.AddScoped<IFruitRepository, FruitRepository>();
 
+builder.Services.AddCors();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,6 +29,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(cors => {
+    cors.AllowAnyHeader();
+    cors.AllowAnyMethod();
+    cors.AllowAnyOrigin();
+});
 
 app.UseHttpsRedirection();
 
