@@ -3,10 +3,12 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace duett_tech_challenge_api.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitDbMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +26,15 @@ namespace duett_tech_challenge_api.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Fruit", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Fruit",
+                columns: new[] { "Id", "Description", "ValueOne", "ValueTwo" },
+                values: new object[,]
+                {
+                    { 1, "Banana", 10, 2 },
+                    { 2, "Maça", 0, 5 }
                 });
         }
 

@@ -41,6 +41,22 @@ namespace duett_tech_challenge_api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Fruit");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Banana",
+                            ValueOne = 10,
+                            ValueTwo = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Maça",
+                            ValueOne = 0,
+                            ValueTwo = 5
+                        });
                 });
 #pragma warning restore 612, 618
         }
