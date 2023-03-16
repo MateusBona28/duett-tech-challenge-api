@@ -5,7 +5,5 @@ namespace Fruit.Model {
         public string? Description { get; set; }
         public int ValueOne { get; set; }
         public int ValueTwo { get; set; }
-        public int Result { get; set; }
     }
-
 }
